@@ -1,0 +1,12 @@
+body {
+  width: 1186px;
+}
+
+.bothSearchBlocks {
+  background-color: green;
+}
+
+.full-height {
+  z-index: -2;
+}
+
