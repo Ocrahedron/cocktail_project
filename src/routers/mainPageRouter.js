@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const { mainPageAllChannelsController } = require('../controllers/mainPageController');
+const { mainPageController } = require('../controllers/mainPageController');
 
 router
   .route('/')
-  .get(mainPageAllChannelsController);
+  .get(mainPageController);
 
 module.exports = router;

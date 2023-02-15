@@ -1,7 +1,6 @@
 const React = require('react');
 
 module.exports = function Layout({ children, user }) {
-  
   return (
     <html lang="en">
 
@@ -46,91 +45,33 @@ module.exports = function Layout({ children, user }) {
           <div>
             <div className="navbar navbar-expand-md navbar-dark bg-dark">
               <div id="main-nav" className="navbar-collapse collapse">
-                {/* { user ? ( */}
+                { !user ? (
                   <ul className="navbar-nav nav-fill w-100">
-                    <li className="fs-3 nav-item"><a className="nav-link" href="#Login">Login</a></li>
-                    <li className="nav-item"><a className="fs-3 nav-link" href="#Home">Home</a></li>
-                    <li className="nav-item"><a className="fs-3 nav-link" href="#Registration">Registration</a></li>
+                    <li id="login" className="fs-3 nav-item nav-link">Login</li>
+                    <li className="nav-item"><a className="fs-3 nav-link" href="/home">Home</a></li>
+                    <li id="registration" className="nav-item fs-3 nav-link">Registration</li>
                   </ul>
-                {/* // ) : (
-                //   <ul className="navbar-nav nav-fill w-100">
-                //     <li className="fs-3 nav-item"><a className="nav-link" href="#Account">Account</a></li>
-                //     <li className="nav-item"><a className="fs-3 nav-link" href="#Home">Home</a></li>
-                //     <li className="nav-item"><a className="fs-3 nav-link" href="#Logout">Logout</a></li>
-                //   </ul>
-                // )} */}
+                ) : (
+                  <ul className="navbar-nav nav-fill w-100">
+                    <li className="fs-3 nav-item"><a className="nav-link" href="/account">Account</a></li>
+                    <li className="nav-item"><a className="fs-3 nav-link" href="/home">Home</a></li>
+                    <li className="nav-item"><a className="fs-3 nav-link" href="/logout">Logout</a></li>
+                  </ul>
+                )}
               </div>
             </div>
-            {/* <div className="d-flex justify-content-around bothSearchBlocks" style={{ padding: '20px 0px 20px', paddingBottom: '32px', background: 'rgb(25, 133, 161)' }}>
-              <div className="text-center d-flex flex-column leftBlockSearch" style={{ marginRight: '0px', width: '50%' }}>
-                <h1 className="fs-4">Find cocktail by name</h1>
-                <div className="row">
-                  <div className="col-md-10 offset-md-1">
-                    <div className="card m-auto" style={{ maxWidth: '850px' }}>
-                      <div
-                        className="card-body"
-                        style={{
-                          paddingBottom: '0px', marginTop: '0px', paddingTop: '0px', marginRight: '-16px',
-                        }}
-                      >
-                        <form className="d-flex align-items-center">
-                          <i className="fas fa-search d-none d-sm-block h4 text-body m-0" />
-                          <input className="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search cocktail" name="searchbar" />
-                          <button className="btn btn-success btn-lg" type="submit">Search</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex flex-column" style={{ width: '50%' }}>
-                <h1 className="fs-4 text-center">Find cocktails by ingredient</h1>
-                <div className="row">
-                  <div className="col-md-10 offset-md-1">
-                    <div className="card m-auto" style={{ maxWidth: '850px' }}>
-                      <div
-                        className="card-body"
-                        style={{
-                          paddingBottom: '0px', marginTop: '0px', paddingTop: '0px', marginRight: '-16px',
-                        }}
-                      >
-                        <form className="d-flex align-items-center">
-                          <i className="fas fa-search d-none d-sm-block h4 text-body m-0" />
-                          <input className="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search cocktail" name="searchbar" />
-                          <button className="btn btn-success btn-lg" type="submit">Search</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div>
-            {/* <div
-              className="d-flex justify-content-around flex-wrap"
-              style={{
-                paddingTop: '44px', position: 'absolute', width: '100%', background: 'rgb(220, 220, 221)',
-              }}
-            >
-
-              <div className="text-center" style={{ width: '30%' }}>
-                <div>
-                  <img src="https://ru.inshaker.com/uploads/cocktail/hires/1098/icon_1537863520-Aperol_spritz-HiRes.jpg" style={{ width: '150px', height: '400px' }} alt="" />
-                </div>
-                <label className="form-label" style={{ fontSize: '30px', color: 'var(--bs-danger)', fontStyle: 'italic' }}>Label</label>
-              </div>
-            </div> */}
-            <div className="container full-height" style={{ width: '100%', position: 'absolute' }}>
+            <div id="registrationStyle" className="container full-height" style={{ width: '100%', position: 'absolute' }}>
               <div className="row flex center v-center full-height">
                 <div className="col-8 col-sm-4">
                   <div className="form-box" style={{ background: 'rgb(25, 133, 161)', marginTop: '50px' }}>
-                    <form>
+                    <form id="buttonRegistration">
                       <fieldset>
                         <legend>Registration</legend>
                         <img id="avatar" className="avatar round" src="" alt="" />
-                        <input className="form-control" type="email" id="username" name="username" placeholder="username" />
-                        <input className="form-control" type="email" id="username-1" name="username" placeholder="email" />
+                        <input className="form-control" type="text" id="usernameRegistration" name="name" placeholder="username" />
+                        <input className="form-control" type="email" id="username-1" name="email" placeholder="email" />
                         <input className="form-control" type="password" id="password" name="password" placeholder="password" />
                         <button className="btn btn-primary d-block w-100" type="button">REGISTRATION</button>
                       </fieldset>
@@ -139,16 +80,16 @@ module.exports = function Layout({ children, user }) {
                 </div>
               </div>
             </div>
-            <div className="container full-height" style={{ width: '100%', position: 'absolute' }}>
+            <div id="loginStyle" className="container full-height" style={{ width: '100%', position: 'absolute' }}>
               <div className="row flex center v-center full-height">
                 <div className="col-8 col-sm-4">
                   <div className="form-box" style={{ background: 'rgb(25, 133, 161)', marginTop: '50px' }}>
-                    <form>
+                    <form id="buttonLogin">
                       <fieldset>
                         <legend>Sign in</legend>
                         <img id="avatar-1" className="avatar round" src="" alt="" />
-                        <input className="form-control" type="email" id="username-2" name="username" placeholder="username" />
-                        <input className="form-control" type="email" id="username-3" name="username" placeholder="email" />
+                        <input className="form-control" type="text" id="username-2" name="name" placeholder="username" />
+                        <input className="form-control" type="email" id="username-3" name="email" placeholder="email" />
                         <input className="form-control" type="password" id="password-1" name="password" placeholder="password" />
                         <button className="btn btn-primary d-block w-100" type="button">LOGIN</button>
                       </fieldset>

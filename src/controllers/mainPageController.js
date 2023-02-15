@@ -1,12 +1,13 @@
 const render = require('../utils/render');
 const Error = require('../views/Error');
 const Main = require('../views/pages/Main');
-const { Channel } = require('../../db/models');
+// const { Channel } = require('../../db/models');
 
-exports.mainPageAllChannelsController = async (req, res) => {
+exports.mainPageController = async (req, res) => {
   try {
     // const allChannels = await Channel.findAll({ order: [['id', 'DESC']] });
-    render(Main, { }, res);
+
+    render(Main, {}, res);
   } catch (error) {
     console.log(error);
     render(Error, {

@@ -1,10 +1,10 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-module.exports = function Main( ) {
+module.exports = function Main( {user}) {
   // console.log('allChannels', allChannels);
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="d-flex justify-content-around bothSearchBlocks" style={{ padding: '20px 0px 20px', paddingBottom: '32px', background: 'rgb(25, 133, 161)' }}>
         <div className="text-center d-flex flex-column leftBlockSearch" style={{ marginRight: '0px', width: '50%' }}>
           <h1 className="fs-4">Find cocktail by name</h1>

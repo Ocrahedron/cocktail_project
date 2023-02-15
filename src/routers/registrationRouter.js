@@ -4,7 +4,7 @@ const { registrationController, registrationAddController } = require('../contro
 
 router
   .route('/')
-  .get(registrationController)
+  // .get(registrationController)
   .post(registrationAddController);
 
 module.exports = router;
