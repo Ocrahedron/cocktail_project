@@ -38,8 +38,8 @@ module.exports = function Layout({ children, user }) {
       <body style={{ width: '100%', background: 'rgb(220, 220, 221)' }}>
         <div style={{ width: '100%', color: 'rgb(220, 220, 221)' }}>
           <div>
-            <video width="100%" height="315" controls="" autoPlay="" loop="">
-              <track src="/pictures/barVideo.mp4" kind="captions" srcLang="en" label="english_captions" />
+            <video width="100%" height="315" controls="" autoPlay="true" loop="true">
+              <source src="/pictures/barVideo.mp4" type="video/mp4" />
             </video>
           </div>
           <div>

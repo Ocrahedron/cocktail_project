@@ -12,12 +12,6 @@ module.exports = {
       ingredient_name: {
         type: Sequelize.STRING
       },
-      ingredient_info: {
-        type: Sequelize.STRING
-      },
-      volume: {
-        type: Sequelize.INTEGER
-      },
       url: {
         type: Sequelize.TEXT
       },

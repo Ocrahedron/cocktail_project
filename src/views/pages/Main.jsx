@@ -58,7 +58,7 @@ module.exports = function Main( {user}) {
       >
         <div className="text-center" style={{ width: '30%' }}>
           <div>
-            <img src="https://ru.inshaker.com/uploads/cocktail/hires/1098/icon_1537863520-Aperol_spritz-HiRes.jpg" style={{ width: '150px', height: '450px' }} alt="" />
+            <img src="https://avatars.mds.yandex.net/i?id=927cd0e3d2d9cc0fff4e2bb6dd08b66b509dd5f7-6221753-images-thumbs&n=13" style={{ width: '150px', height: '450px' }} alt="" />
           </div>
           <label className="form-label" style={{ fontSize: '30px', color: 'var(--bs-danger)', fontStyle: 'italic' }}>Label</label>
         </div>

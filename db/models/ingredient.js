@@ -18,8 +18,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ingredient.init({
     ingredient_name: DataTypes.STRING,
-    ingredient_info: DataTypes.STRING,
-    volume: DataTypes.INTEGER,
     url: DataTypes.TEXT,
   }, {
     sequelize,
