@@ -10,3 +10,11 @@ body {
   z-index: -2;
 }
 
+#containerCocktails {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.text-center{
+margin: 0 20px;
+}

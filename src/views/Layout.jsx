@@ -10,6 +10,7 @@ module.exports = function Layout({ children, user }) {
         <meta charSet="UTF-8" />
         <script defer src="/js/application.js" />
         <script defer src="/js/recieveAPI.js" />
+        <script defer src="/js/account.js" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
         <title>Cocktail-Project</title>
@@ -27,34 +28,34 @@ module.exports = function Layout({ children, user }) {
 
         <script src="/js/style/bootstrap.min.js" />
         <script src="/js/style/select2-anchor.min.js" />
-        <script src="/js/style/select2-placeholders.jquery.min.js" />
+        {/* <script src="/js/style/select2-placeholders.jquery.min.js" /> */}
         <script src="/js/style/select2-placeholders.js" />
         <script src="/js/style/select2-prettify.min.js" />
-        <script src="/js/style/select2-select2.full.js" />
-        <script src="/js/style/select2-zcontent.js" />
-        <script src="/js/style/select2.js" />
+        {/* <script src="/js/style/select2-select2.full.js" /> */}
+        {/* <script src="/js/style/select2-zcontent.js" /> */}
+        {/* <script src="/js/style/select2.js" /> */}
       </head>
 
       <body style={{ width: '100%', background: 'rgb(220, 220, 221)' }}>
         <div style={{ width: '100%', color: 'rgb(220, 220, 221)' }}>
-          <div>
-            <video width="100%" height="315" controls="" autoPlay="true" loop="true">
+          {/* <div>
+            <video width="100%" height="315" controls="" autoPlay loop>
               <source src="/pictures/barVideo.mp4" type="video/mp4" />
             </video>
-          </div>
+          </div> */}
           <div>
             <div className="navbar navbar-expand-md navbar-dark bg-dark">
               <div id="main-nav" className="navbar-collapse collapse">
                 { !user ? (
                   <ul className="navbar-nav nav-fill w-100">
                     <li id="login" className="fs-3 nav-item nav-link">Login</li>
-                    <li className="nav-item"><a className="fs-3 nav-link" href="/home">Home</a></li>
+                    <li className="nav-item"><a className="fs-3 nav-link" href="/">Home</a></li>
                     <li id="registration" className="nav-item fs-3 nav-link">Registration</li>
                   </ul>
                 ) : (
                   <ul className="navbar-nav nav-fill w-100">
                     <li className="fs-3 nav-item"><a className="nav-link" href="/account">Account</a></li>
-                    <li className="nav-item"><a className="fs-3 nav-link" href="/home">Home</a></li>
+                    <li className="nav-item"><a className="fs-3 nav-link" href="/">Home</a></li>
                     <li className="nav-item"><a className="fs-3 nav-link" href="/logout">Logout</a></li>
                   </ul>
                 )}

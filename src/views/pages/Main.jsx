@@ -1,11 +1,11 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-module.exports = function Main( {user}) {
+module.exports = function Main({ allCocktails, user }) {
   // console.log('allChannels', allChannels);
   return (
     <Layout user={user}>
-      <div className="d-flex justify-content-around bothSearchBlocks" style={{ padding: '20px 0px 20px', paddingBottom: '32px', background: 'rgb(25, 133, 161)' }}>
+      <div id="mainContainer" className="d-flex justify-content-around bothSearchBlocks" style={{ padding: '20px 0px 20px', paddingBottom: '32px', background: 'rgb(25, 133, 161)' }}>
         <div className="text-center d-flex flex-column leftBlockSearch" style={{ marginRight: '0px', width: '50%' }}>
           <h1 className="fs-4">Find cocktail by name</h1>
           <div className="row">
@@ -17,9 +17,9 @@ module.exports = function Main( {user}) {
                     paddingBottom: '0px', marginTop: '0px', paddingTop: '0px', marginRight: '-16px',
                   }}
                 >
-                  <form className="d-flex align-items-center">
+                  <form name="findByName" className="d-flex align-items-center">
                     <i className="fas fa-search d-none d-sm-block h4 text-body m-0" />
-                    <input className="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search cocktail" name="searchbar" />
+                    <input className="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search cocktail" name="searchBarByName" />
                     <button className="btn btn-success btn-lg" type="submit">Search</button>
                   </form>
                 </div>
@@ -38,9 +38,9 @@ module.exports = function Main( {user}) {
                     paddingBottom: '0px', marginTop: '0px', paddingTop: '0px', marginRight: '-16px',
                   }}
                 >
-                  <form className="d-flex align-items-center">
+                  <form name="findByIngredient" className="d-flex align-items-center">
                     <i className="fas fa-search d-none d-sm-block h4 text-body m-0" />
-                    <input className="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search cocktail" name="searchbar" />
+                    <input className="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Search cocktail" name="searchBarByIngredient" />
                     <button className="btn btn-success btn-lg" type="submit">Search</button>
                   </form>
                 </div>
@@ -51,17 +51,21 @@ module.exports = function Main( {user}) {
       </div>
 
       <div
+        id="cardsContainer"
         className="d-flex justify-content-around flex-wrap"
         style={{
           paddingTop: '44px', position: 'absolute', width: '100%', background: 'rgb(220, 220, 221)',
         }}
       >
-        <div className="text-center" style={{ width: '30%' }}>
-          <div>
-            <img src="https://avatars.mds.yandex.net/i?id=927cd0e3d2d9cc0fff4e2bb6dd08b66b509dd5f7-6221753-images-thumbs&n=13" style={{ width: '150px', height: '450px' }} alt="" />
+        {allCocktails && allCocktails.map((el) => (
+          <div className="text-center" style={{ width: '30%' }}>
+            <div>
+              <img title="cardDB" id={`${el.id}`} src={`${el.url}`} style={{ width: '300px' }} alt={`${el.cocktail_name}`} />
+            </div>
+            <label className="form-label" style={{ fontSize: '30px', color: 'var(--bs-danger)', fontStyle: 'italic' }}>{el.cocktail_name}</label>
           </div>
-          <label className="form-label" style={{ fontSize: '30px', color: 'var(--bs-danger)', fontStyle: 'italic' }}>Label</label>
-        </div>
+        ))}
+
       </div>
 
     </Layout>

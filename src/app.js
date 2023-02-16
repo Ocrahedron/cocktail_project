@@ -14,6 +14,7 @@ const registrationRouter = require('./routers/registrationRouter');
 const loginRouter = require('./routers/loginRouter');
 const logoutRouter = require('./routers/logoutRouter');
 const recieveAPIRouter = require('./routers/recieveAPIRouter');
+const accountRouter = require('./routers/accountRouter');
 const Error = require('./views/Error');
 
 const app = express();
@@ -48,6 +49,7 @@ app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/recieveAPI', recieveAPIRouter);
+app.use('/account', accountRouter);
 
 app.use((req, res, next) => {
   const error = createError(404, 'Error from app.js page.');

@@ -1,13 +1,14 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-module.exports = function Account() {
+module.exports = function Account({ user, allFavourites }) {
   return (
-    <Layout>
+    <Layout user={user}>
 
-      <div className="d-flex flex-row flex-grow-0 flex-shrink-0 justify-content-start" style={{ height: '1500px', background: 'rgb(220, 220, 221)' }}>
-        <div className="text-center d-inline-flex flex-column" style={{ width: '30%' }}>
+      <div id="mainAccountContainer" className="d-flex flex-row flex-grow-0 flex-shrink-0 justify-content-start" style={{ background: 'rgb(220, 220, 221)' }}>
+        <div id="contanerButton" className="text-center d-inline-flex flex-column" style={{ width: '30%' }}>
           <button
+            name="favourite"
             className="btn btn-primary"
             type="button"
             style={{
@@ -17,6 +18,7 @@ module.exports = function Account() {
             Favourite
           </button>
           <button
+            name="ingredients"
             className="btn btn-primary"
             type="button"
             style={{
@@ -25,7 +27,9 @@ module.exports = function Account() {
           >
             Ingredients
           </button>
+
           <button
+            name="create"
             className="btn btn-primary"
             type="button"
             style={{
@@ -34,7 +38,9 @@ module.exports = function Account() {
           >
             Create
           </button>
+
           <button
+            name="createdByYou"
             className="btn btn-primary"
             type="button"
             style={{
@@ -44,13 +50,17 @@ module.exports = function Account() {
             Created by you
           </button>
         </div>
-        <div className="d-flex justify-content-around flex-wrap" style={{ paddingTop: '44px', position: 'relative', width: '100%' }}>
-          <div className="text-center" style={{ width: '30%', height: '500px' }}>
-            <div>
-              <img src="https://ru.inshaker.com/uploads/cocktail/hires/1098/icon_1537863520-Aperol_spritz-HiRes.jpg" style={{ width: '150px', height: '400px' }} alt="" />
+        <div id="containerCocktails" style={{ paddingTop: '44px', position: 'relative', width: '100%' }}>
+          {allFavourites && allFavourites.map((el) => (
+            <div className="text-center">
+              <div>
+                <img src={`${el.url}`} style={{ width: '100%' }} alt="" />
+              </div>
+              <label className="form-label" style={{ fontSize: '30px', color: 'var(--bs-danger)', fontStyle: 'italic' }}>
+                {el.cocktail_name}
+              </label>
             </div>
-            <label className="form-label" style={{ fontSize: '30px', color: 'var(--bs-danger)', fontStyle: 'italic' }}>Label</label>
-          </div>
+          ))}
         </div>
       </div>
 

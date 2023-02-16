@@ -52,7 +52,7 @@ module.exports = function CreateCocktail() {
           paddingTop: '44px', position: 'relative', width: '100%', height: '50%',
         }}
       >
-        <div className="form-box" style={{ background: 'rgb(25, 133, 161)', marginTop: '50px', width: '80%' }}>
+        <div id="createBox" className="form-box" style={{ background: 'rgb(25, 133, 161)', marginTop: '50px', width: '80%' }}>
           <form style={{ margin: '0px', paddingTop: '80px' }}>
             <fieldset>
               <h1 style={{
