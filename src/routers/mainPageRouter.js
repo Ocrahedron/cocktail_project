@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const { mainPageController, showCardsController, addToFavouriteController } = require('../controllers/mainPageController');
+const { isAuth } = require('../middlewares/functs');
 
 router
   .route('/')
@@ -12,6 +13,6 @@ router
 
 router
   .route('/addToFavourite')
-  .post(addToFavouriteController);
+  .post(isAuth, addToFavouriteController);
 
 module.exports = router;

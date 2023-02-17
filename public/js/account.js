@@ -38,11 +38,27 @@ mainAccountContainer?.addEventListener('click', async (event) => {
     }
   }
   if (event.target.name === 'ingredients') {
-    const response = await fetch('/account/ingredients', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(),
-    });
+    try {
+      const response = await fetch('/account/ingredients', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(),
+      });
+      const result = await response.json();
+      containerCocktails.innerHTML = '';
+      result.allIngredients.forEach((el) => {
+        const card = document.createElement('div');
+        card.classList = 'text-center mb-3';
+        const onePicture = document.createElement('div');
+        onePicture.innerHTML = `
+        <img src=${el.url} style="width: 100%" alt=${el.ingredient_name} />
+        `;
+        card.appendChild(onePicture);
+        containerCocktails.appendChild(card);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   if (event.target.name === 'create') {
@@ -60,7 +76,7 @@ mainAccountContainer?.addEventListener('click', async (event) => {
               </h1>
               <input class="form-control" type="text" id="newName" name="newName" placeholder="Cocktail name" style='width: 300px; textAlign: left' />
               <input class="form-control" type="text" id="newIngredients" name="newIngredients" placeholder="Ingredients" style='margin-top: 52px' />
-              <input class="form-control" type="text" id="newInfo" name="newInfo" placeholder="Info about new cocktail" style='width: 50%; height: 200px; margin-top: 58px' />
+              <textarea class="form-control" type="text" id="newInfo" name="newInfo" placeholder="Info about new cocktail" style='width: 50%; height: 200px; margin-top: 58px'></textarea>
               <input class="form-control" type="text" id="newPhoto" name="newPhoto" placeholder="Photo" style='margin-top: 52px' />
               <button name='createCocktailButton' class="btn btn-primary d-block w-100" type="submit" style='margin-top: 40px'>CREATE</button>
            
@@ -124,4 +140,3 @@ mainAccountContainer?.addEventListener('click', async (event) => {
     console.log(error);
   }
 });
-// event.target.attributes.class.ownerDocument

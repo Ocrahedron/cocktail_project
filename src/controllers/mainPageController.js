@@ -2,7 +2,7 @@ const render = require('../utils/render');
 const Error = require('../views/Error');
 const Main = require('../views/pages/Main');
 const {
-  Cocktail, CockToIngr, Ingredient, Favourite,
+  Cocktail, CockToIngr, Ingredient, Favourite, User, ConTablIngr,
 } = require('../../db/models');
 
 exports.mainPageController = async (req, res) => {
@@ -37,10 +37,26 @@ exports.addToFavouriteController = async (req, res) => {
       user_id: req.session.user.id,
       cocktail_id: req.body.cocktail_id,
     });
+    const findCocktails = await User.findOne({ where: { id: req.session.user.id }, include: { model: Cocktail, include: Ingredient } });
+    const allIngredients = findCocktails.Cocktails.map((el) => el.Ingredients.reduce((accum, elem) => {
+      if (elem.ingredient_name && elem.url) {
+        accum.push({ id: elem.id, ingredient_name: elem.ingredient_name, url: elem.url });
+        return accum;
+      }
+    }, []));
+
+    const allShort = allIngredients.flat(1);
+
+    for (let i = 0; i < allShort.length; i += 1) {
+      console.log(allShort[i].ingredient_name);
+      const [ingredient, created] = await ConTablIngr.findOrCreate({
+        where: { ingredient_id: allShort[i].id },
+        defaults: { ingredient_id: allShort[i].id, user_id: req.session.user.id },
+      });
+    }
     res.json({ isAddSuccessful: true });
   } catch (error) {
     console.log(error);
     res.json({ isAddSuccessful: false });
   }
 };
-

@@ -147,7 +147,7 @@ findByIngredient?.addEventListener('submit', async (event) => {
       card.classList.add('text-center');
       card.style.width = '30%';
       card.innerHTML = `
-  <div style='display:none' data-name=${cocktail.strDrink} data-id=${cocktail.strDrinkThumb} >
+  <div data-name=${cocktail.strDrink} data-id=${cocktail.strDrinkThumb} >
   <img title='newCardCreate' src=${cocktail.strDrinkThumb} style='width: 300px'; alt=${cocktail.strDrink}; title=${cocktail.strDrink} />
   </div>
   <label class="form-label" style='font-size: 30px; color: var(--bs-danger); font-style: italic'>${cocktail.strDrink}</label>
@@ -207,12 +207,13 @@ cardsContainer?.addEventListener('click', async (event) => {
         rightColoumn.innerHTML = `
                 <form data-message=${result.findCocktail.id} name='favourite' class="d-flex flex-column align-items-center" style="width: 80%;">
                     <label name =${result.findCocktail.cocktail_info} class="form-label" style="font-size: 30px;color: var(--bs-danger);font-style: italic;padding-top: 20px;">${result.findCocktail.cocktail_name}</label>
-                      <div style="width: 50%;height: 30%;">
+                      <div style="width: 60%;height: 30%;">
                       <img src=${result.findCocktail.url} style="width: 100%;">
                       </div>
                       <button id='${result.findCocktail.id}'  name='butAddToFavourite' class="btn btn-primary" type="button" style="width: 70%;height: 75px;margin: 15%;padding: 10px;background: transparent;border: 3px solid var(--bs-teal);color: var(--bs-code-color);font-size: 25px;margin-top: 26px;margin-bottom: 62px;">Add to favourite</button>
+                      <button id='1${result.findCocktail.id}'  name='butDeleteToFavourite' class="btn btn-primary" type="button" style="width: 70%;height: 75px;margin: 15%;padding: 10px;background: transparent;border: 3px solid var(--bs-teal);color: var(--bs-code-color);font-size: 25px;margin-top: 26px;margin-bottom: 62px;">Delete from favourite</button>
                       <label class="form-label" style="font-size: 30px;color: var(--bs-danger);font-style: italic;">Information about the cocktail</label>
-                      <textarea style="width: 100%;background: rgb(197, 195, 198);border-radius: 20px;height: 300px;border-width: 0px;">${result.findCocktail.cocktail_info}</textarea>
+                      <textarea style="padding: 10px;width: 100%;background: rgb(197, 195, 198);border-radius: 20px;height: 300px;border-width: 0px;">${result.findCocktail.cocktail_info}</textarea>
                  </form>
       `;
         cardsContainer.appendChild(rightColoumn);
@@ -293,6 +294,7 @@ cardsContainer?.addEventListener('click', async (event) => {
                   <img src=${result.findCocktail.url} style="width: 100%;">
                   </div>
                   <button id='${result.findCocktail.id}'  name='butAddToFavourite' class="btn btn-primary" type="button" style="width: 70%;height: 75px;margin: 15%;padding: 10px;background: transparent;border: 3px solid var(--bs-teal);color: var(--bs-code-color);font-size: 25px;margin-top: 26px;margin-bottom: 62px;">Add to favourite</button>
+                  <button id='1${result.findCocktail.id}'  name='butDeleteToFavourite' class="btn btn-primary" type="button" style="width: 70%;height: 75px;margin: 15%;padding: 10px;background: transparent;border: 3px solid var(--bs-teal);color: var(--bs-code-color);font-size: 25px;margin-top: 26px;margin-bottom: 62px;">Delete from favourite</button>
                   <label class="form-label" style="font-size: 30px;color: var(--bs-danger);font-style: italic;">Information about the cocktail</label>
                   <textarea style="width: 100%;background: rgb(197, 195, 198);border-radius: 20px;height: 300px;border-width: 0px;">${result.findCocktail.cocktail_info}</textarea>
              </form>

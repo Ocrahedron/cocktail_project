@@ -262,6 +262,36 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          ingredient_name: 'Dark rum',
+          url: 'https://avatars.mds.yandex.net/i?id=4b17906bd680d4aa8a5271ee6a261c2f-5159711-images-thumbs&n=13',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          ingredient_name: 'Overproof rum',
+          url: 'https://avatars.mds.yandex.net/i?id=9b042479544f15c8e7bc94be4b6c122a-4536759-images-thumbs&n=13',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          ingredient_name: 'Сinnamon syrup',
+          url: 'https://avatars.mds.yandex.net/i?id=a4150c4c9b366f12aafe767958965bfd-5349176-images-thumbs&n=13',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          ingredient_name: 'Grapefruit juice',
+          url: 'https://avatars.mds.yandex.net/i?id=8a5d2e281f7af395b90af7f3d48c6a60018464aa-4902600-images-thumbs&n=13',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          ingredient_name: 'Grapefruit',
+          url: 'https://avatars.mds.yandex.net/i?id=a6a2cde10a45a8006c7895f0ee340dc51d476bec-8496372-images-thumbs&n=13',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {},
     );

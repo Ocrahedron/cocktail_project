@@ -38,11 +38,11 @@ module.exports = function Layout({ children, user }) {
 
       <body style={{ width: '100%', background: 'rgb(220, 220, 221)' }}>
         <div style={{ width: '100%', color: 'rgb(220, 220, 221)' }}>
-          {/* <div>
-            <video width="100%" height="315" controls="" autoPlay loop>
+          <div style={{ background: 'rgb(25, 133, 161)' }}>
+            <video width="100%" height="400px" controls="" autoPlay muted loop>
               <source src="/pictures/barVideo.mp4" type="video/mp4" />
             </video>
-          </div> */}
+          </div>
           <div>
             <div className="navbar navbar-expand-md navbar-dark bg-dark">
               <div id="main-nav" className="navbar-collapse collapse">

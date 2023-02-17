@@ -1,7 +1,7 @@
 const render = require('../utils/render');
 const Account = require('../views/pages/Account');
 const {
-  Cocktail, Ingredient, CockToIngr, Favourite, User,
+  Cocktail, Ingredient, CockToIngr, Favourite, User, ConTablIngrs,
 } = require('../../db/models');
 
 // const { User } = require('../../db/models');
@@ -88,21 +88,9 @@ exports.createdByYouController = async (req, res) => {
 
 exports.showIngredientsController = async (req, res) => {
   try {
-    const findCocktails = await User.findOne({ where: { id: req.session.user.id }, include: { model: Cocktail, include: Ingredient } });
-
-    // console.log(findCocktails.Cocktails[0].Ingredients[0].get());
-
-    const allIngredients = findCocktails.Cocktails.map((el) => {
-      el = el.Ingredients.reduce((accum, elem) => {
-        console.log('ингред', elem.ingredient_name);
-        if (elem.ingredient_name && elem.url) {
-          accum.push({ ingredient_name: elem.ingredient_name, url: elem.url });
-        }
-      }, []);
-    });
-    console.log(allIngredients);
-
-    res.json({ isShowFavourite: true });
+    const findIngredients = await User.findOne({ where: { id: req.session.user.id }, include: Ingredient });
+    const allIngredients = findIngredients.Ingredients;
+    res.json({ isShowFavourite: true, allIngredients });
   } catch (error) {
     console.log(error);
     res.json({ isShowFavourite: false, errorMessage: 'Can not open the page favourite' });

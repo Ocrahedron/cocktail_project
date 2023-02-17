@@ -3,15 +3,16 @@ const router = require('express').Router();
 const {
   enterToAccountController, createNewCocktailController, showAllFavouritesController, createdByYouController, showIngredientsController,
 } = require('../controllers/enterToAccountController');
-// const { enterToCreateController } = require('../controllers/enterToCreateController');
+
+const { isAuth } = require('../middlewares/functs');
 
 router
   .route('/')
-  .get(enterToAccountController);
+  .get(isAuth, enterToAccountController);
 
 router
   .route('/create/add')
-  .post(createNewCocktailController);
+  .post(isAuth, createNewCocktailController);
 
 router
   .route('/favourite')
@@ -19,9 +20,9 @@ router
 
 router
   .route('/ingredients')
-  .post(showIngredientsController);
+  .get(isAuth, showIngredientsController);
 
 router
   .route('/createdByYou')
-  .get(createdByYouController);
+  .get(isAuth, createdByYouController);
 module.exports = router;
